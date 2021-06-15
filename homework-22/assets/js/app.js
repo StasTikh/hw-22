@@ -8,7 +8,19 @@ function inMaBo() {
 
     let mass = +getWeight.value;
 
+
     let checkBox = getMeaning.checked;
+
+    
+    function showCheckBox() {
+        if (getWeight.value != 0 && getHeight.value != 0) {
+            document.getElementById('meaningCheckBox').style.display = "block";
+        } else {
+            document.getElementById('meaningCheckBox').style.display = "none";
+        }
+    }
+
+    
 
     let index = mass / (height * height);
 
@@ -24,7 +36,7 @@ function inMaBo() {
             document.getElementById('outputInfoParagraph').classList.add('text-warning')
             document.getElementById('outputInfoParagraph').style.visibility = "visible"
             placeForInfo.innerHTML = ("Severely underweight (You need to eat a bit more)"); //According to Wikipedia
-        } else if (index > 15.5 && index <= 25) {
+        } else if (index > 18.5 && index <= 25) {
             document.getElementById('outputInfoParagraph').classList.add('text-success')
             document.getElementById('outputInfoParagraph').style.visibility = "visible"
             placeForInfo.innerHTML = ("Normal (healthy weight)"); //According to Wikipedia
@@ -46,5 +58,8 @@ function inMaBo() {
             placeForInfo.innerHTML = ("Obese Class III (Very severely obese, stop eating immediately!!!)"); //According to Wikipedia
         }
     }
+
+    return showCheckBox;
 }
+
 
